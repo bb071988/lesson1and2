@@ -16,7 +16,7 @@ with conn:
 
 print df.values
 print df.describe
-print df.describe(average_high)
+# print df.describe(average_high)
 
 # # persist the changes
 # conn.commit()

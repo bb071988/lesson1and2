@@ -21,9 +21,12 @@ with conn:
 
 with conn:
         cur = conn.cursor()
-        cur.execute("SELECT name, state, avg(average_high) FROM weather group by(name, state)")
-        print("avg by city state")
-        print(cur.fetchall)
+        cur.execute("SELECT name, avg(average_high) as avg_high\
+        FROM cities \
+        INNER JOIN weather \
+        ON name = city \
+        group by name") 
+        print(cur.fetchall())
 
 # persist the changes
 # conn.commit()
